@@ -1,10 +1,12 @@
 import React,{Component} from 'react';
+import Searchbar from './Component/Searchbar';
 import youtube from './api/youtube';
 import VideoList from './Component/VideoList';
 import VideoDetail from './Component/VideoDetail';
+import axios from 'axios';
+const KEY = 'AIzaSyAyCPoFhBzFMXzT50FZLERgW2ztIrCyXaI';
 
-import Searchbar from './Component/Searchbar';
-import VideoItem from './Component/VideoItem';
+// import VideoItem from './Component/VideoItem';
 
 class App extends Component {
   state = {
@@ -15,6 +17,9 @@ class App extends Component {
   handleSubmit= async (termFromSearchBar)=> {
     const response = await youtube.get('/search',{
       params:{
+        part: 'snippet',
+        maxResults: 5,
+        key: KEY,
         q: termFromSearchBar
       }
     })

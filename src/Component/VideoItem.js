@@ -10,5 +10,5 @@ const VideoItem = ({video, handleVideoSelect}) =>{
       </div>
     </div>
   )
-}
+};
 export default VideoItem;
